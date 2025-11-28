@@ -6,11 +6,20 @@
     <title>Benoît Alcaraz</title>
     <!-- <link rel="stylesheet" type="text/css" href="./style.css" /> -->
     <style>
-        .bg {
+        .bg-image {
             background-image: url("./img/background.png");
             
             filter: blur(8px);
             -webkit-filter: blur(8px);
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .bg-drop {
+            
+            backdrop-filter: blur();
 
             background-position: center;
             background-repeat: no-repeat;
@@ -43,13 +52,15 @@
     </style>
 </head>
 <body>
-    <div class="bg">
-        <topbar>
-            photo + name here should be black
-        </topbar>
-        <thread>
-            bla
-        </thread>
+    <div class="bg-image">
+        <div class="bg-drop">
+            <topbar>
+                photo + name here should be black
+            </topbar>
+            <thread>
+                bla
+            </thread>
+        </div>
     </div>
 </body>
 </html>
