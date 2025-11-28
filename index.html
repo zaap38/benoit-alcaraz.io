@@ -4,10 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Benoît Alcaraz</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./style.css" /> -->
+    <style>
+    #topbar {
+        font-size: 0;
+        line-height: 0;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 24px;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0 16px;
+        background-color: #151515;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 6;
+    }
+    </style>
 </head>
 <body>
-    <div class="topbar">photo + name here should be black</div>
+    <topbar>photo + name here should be black</topbar>
     <div style="background-color: blue;">bla</div>
 </body>
 </html>
