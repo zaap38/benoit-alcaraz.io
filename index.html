@@ -9,7 +9,7 @@
         html, body {
             height: 100%;
             margin: 0;
-            overflow: hidden; /* disables scrolling */
+            overflow: hidden; /* no global scrolling */
         }
 
         .bg-image {
@@ -17,23 +17,22 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-
             filter: blur(4px);
 
-            /* important: full screen */
-            height: 100vh;
-            width: 100vw;
-
-            position: fixed; /* so it stays put */
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: -1; /* behind content */
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
         }
 
         .bg-drop {
-            backdrop-filter: blur(0px);
             height: 100vh;
             width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;   /* center content horizontally */
         }
 
         topbar {
@@ -41,21 +40,39 @@
             color: #e9e2bf;
             font-family: "Roboto Condensed", sans-serif;
 
+            width: 100%; 
+            padding: 12px 16px;
+            background-color: #0F1010;
+
             display: flex;
-            gap: 24px;
             justify-content: space-between;
             align-items: center;
 
-            padding: 12px 16px;
-            background-color: #0F1010;
-            z-index: 6;
+            flex-shrink: 0; /* prevents collapsing */
         }
 
         thread {
             display: block;
+
+            width: 60vw;      /* 60% of page width */
+            max-width: 900px; /* optional */
+            height: calc(100vh - 80px); /* adjust based on topbar height */
             background-color: #1C1C1E;
             color: white;
+
+            margin-top: 20px;
             padding: 20px;
+
+            border-radius: 12px;
+            overflow-y: auto; /* internal scrolling only */
+        }
+
+        thread::-webkit-scrollbar {
+            width: 8px;
+        }
+        thread::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -69,7 +86,12 @@
         </topbar>
 
         <thread>
-            bla
+            This is your scrollable content section.
+            <br><br>
+            Add as much content as you want here — the page will not scroll,
+            only this area will.
+            <br><br>
+            Lorem ipsum ... (etc)
         </thread>
     </div>
 </body>
