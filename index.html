@@ -1,96 +1,159 @@
+<!-- File: index.html -->
 <!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Benoît Alcaraz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alex Doe — Product Designer</title>
 
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            overflow: hidden; /* no global scrolling */
-        }
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        .bg-image {
-            background-image: url("./img/background.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: blur(4px);
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-        }
+    <!-- Favicons (optional) -->
+    <meta name="theme-color" content="#0b0f13">
+  </head>
+  <body>
+    <div class="app">
+      <header class="site-header">
+        <a class="logo" href="#">BA<span class="dot">.</span></a>
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
+          <a href="#notes">Notes</a>
+          <a href="#contact" class="cta">Contact</a>
+        </nav>
+        <button class="menu-btn" aria-label="Open menu">☰</button>
+      </header>
 
-        .bg-drop {
-            height: 100vh;
-            width: 100vw;
-            display: flex;
-            flex-direction: column;
-            align-items: center;   /* center content horizontally */
-        }
+      <main>
+        <section class="hero">
+          <div class="hero-grid">
+            <div class="hero-text">
+              <p class="eyebrow">Hello, I’m</p>
+              <h1>Benoît Alcaraz <span class="flag">🇫🇷</span><span class="accent">.</span></h1>
+              <p class="lead">4th year Ph.D student in the University of Luxembourg.</p>
 
-        topbar {
-            font-size: 30px;
-            color: #e9e2bf;
-            font-family: "Roboto Condensed", sans-serif;
+              <p class="tags">
+                <span>Multi-agent systems</span>
+                <span>Normative systems</span>
+                <span>Reinforcement learning</span>
+              </p>
 
-            width: 100%; 
-            padding: 12px 16px;
-            background-color: #0F1010;
+              <p class="hero-cta">
+                <a class="btn primary" href="#publications">See my work</a>
+                <a class="btn ghost" href="/resume.pdf">Resume</a>
+              </p>
+            </div>
 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            <div class="hero-card" aria-hidden="true">
+                <div class="card-inner">
+                    <div class="mockup">
+                    <div class="top-bar"></div>
+                    <div class="screen">
+                        <div class="screen-header">Links</div>
 
-            flex-shrink: 0; /* prevents collapsing */
-        }
+                        <div class="icon-links">
+                            <a href="https://github.com/zaap38" target="_blank" class="icon github" aria-label="GitHub"></a>
+                            <a href="https://scholar.google.com/citations?user=66_0tk0AAAAJ" target="_blank" class="icon scholar" aria-label="Google Scholar"></a>
+                            <a href="https://orcid.org/0000-0002-7507-5328" target="_blank" class="icon orcid" aria-label="ORCID.org"></a>
+                        </div>
 
-        thread {
-            display: block;
-            color: #8C8C7C;
+                        <!-- NEW separator -->
+                        <hr class="mockup-separator">
 
-            width: 60vw;      /* 60% of page width */
-            max-width: 900px; /* optional */
-            height: calc(100vh - 80px); /* adjust based on topbar height */
-            background-color: #1C1C1E;
+                        <!-- ORCID number in big -->
+                        <div class="orcid-number">
+                        0000-0002-7507-5328
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </section>
 
-            margin-top: 0px;
-            padding: 20px;
-            overflow-y: auto; /* internal scrolling only */
-        }
+        <section id="about" class="section about">
+          <div class="container">
+            <h2>About</h2>
+            <p>I’m a product designer based in Luxembourg focused on helping teams ship delightful, usable products. I love building interfaces that feel fast and intuitive and collaborating across product, engineering, and research.</p>
+            <div class="stats">
+              <div><strong>8+</strong><span>years</span></div>
+              <div><strong>50+</strong><span>projects</span></div>
+              <div><strong>3</strong><span>startups</span></div>
+            </div>
+          </div>
+        </section>
 
-        thread::-webkit-scrollbar {
-            width: 8px;
-        }
-        thread::-webkit-scrollbar-thumb {
-            background: #555;
-            border-radius: 4px;
-        }
-    </style>
-</head>
+        <section id="publications" class="section work">
+            <div class="container">
+                <h2>Publications</h2>
 
-<body>
-    <div class="bg-image"></div>
+                <section id="publications" class="section work">
+                  <div class="container">
+                    <h2>Publications</h2>
+                    <p class="muted">Selected peer-reviewed articles and conference papers.</p>
 
-    <div class="bg-drop">
-        <topbar>
-            photo + name here should be black
-        </topbar>
+                    <!-- where parsed publications will be inserted -->
+                    <ol id="pub-list" class="pub-list"></ol>
+                  </div>
+                </section>
+            </div>
+        </section>
 
-        <thread>
-            This is your scrollable content section.
-            <br><br>
-            Add as much content as you want here — the page will not scroll,
-            only this area will.
-            <br><br>
-            Lorem ipsum ... (etc)
-        </thread>
+
+        <section id="notes" class="section notes">
+          <div class="container">
+            <h2>Notes</h2>
+            <ul class="notes-list">
+              <li><a href="#">How to run a lightweight research sprint</a></li>
+              <li><a href="#">Designing for low-bandwidth users</a></li>
+              <li><a href="#">Accessibility checklist for designers</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="contact" class="section contact">
+          <div class="container">
+            <h2>Get in touch</h2>
+            <p>If you’d like to work together or just say hi, I’m available for freelance and full-time roles.</p>
+            <p><a class="btn primary" href="mailto:hello@example.com">hello@example.com</a></p>
+            <p class="socials">
+              <a href="#">Dribbble</a>
+              <a href="#">Behance</a>
+              <a href="#">Twitter</a>
+              <a href="#">LinkedIn</a>
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container">
+          <p>© <span id="year"></span> Benoît Alcaraz.</p>
+        </div>
+      </footer>
     </div>
-</body>
+
+    <script>
+      // small helpers
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // mobile menu toggle
+      const menuBtn = document.querySelector('.menu-btn');
+      const nav = document.querySelector('.nav');
+      menuBtn.addEventListener('click', ()=> nav.classList.toggle('open'));
+    </script>
+
+    <!-- BibTeX parser (CDN) -->
+    <script src="https://unpkg.com/bibtex-parse-js@1.0.0/dist/bibtexParse.min.js">
+      console.log(typeof bibtexParse);
+    </script>
+
+    <!-- your loader script -->
+    <script src="/scripts.js"></script>
+  </body>
 </html>
