@@ -1,6 +1,6 @@
 // loadPublications.js (diagnostic + fallback)
 (async function(){
-  const BIB_PATH = 'https://zaap38.github.io/benoit-alcaraz.github.io/publications.bib'; // adjust if needed
+  const BIB_PATH = 'https://zaap38.github.io/benoit-alcaraz.io/publications.bib'; // adjust if needed
   const listEl = document.getElementById('pub-list');
   const sortEl = document.getElementById('pub-sort');
   const downloadBtn = document.getElementById('download-bib');
