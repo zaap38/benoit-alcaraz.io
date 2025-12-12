@@ -17,6 +17,7 @@
 
   // fetch the bib file with diagnostics
   async function fetchBib(path) {
+    console.log(path)
     try {
       console.log('[pubs] fetching', path);
       const res = await fetch(path, {cache: "no-cache"});
