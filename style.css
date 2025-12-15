@@ -82,7 +82,7 @@ body{
 .proj-meta{font-size:12px;opacity:0.95}
 .proj-body h3{margin:10px 0 6px}
 
-.notes-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.notes-list{list-style:none;padding:0;margin:0;display:grid;gap:5px}
 .notes-list a{text-decoration:none;color:var(--muted)}
 
 .site-footer{margin-top:auto;padding:28px 0;border-top:1px solid rgba(255,255,255,0.02);background:linear-gradient(180deg, transparent, rgba(0,0,0,0.2))}
