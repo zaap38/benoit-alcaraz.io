@@ -326,7 +326,7 @@ function decodeLaTeX(str) {
   // Remove leftover backslashes
   str = str.replace(/\\([a-zA-Z])/g, '$1');
 
-  str = str.replace('$\pi$', 'π');
+  str = str.replace('$pi$', 'π');
 
   return str;
 }
