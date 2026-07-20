@@ -53,42 +53,6 @@
     }
   }
 
-//   // very small fallback parser: split on @, extract key fields by regex
-//   function fallbackParse(text) {
-//     console.log('[pubs] using fallback parser');
-//     const entries = [];
-//     // split by @ but preserve starting @
-//     const parts = text.split(/\n@/).map((p,i) => (i===0 ? p.trim() : '@'+p.trim())).filter(Boolean);
-//     for (const part of parts) {
-//       // ensure starts with @type{key,
-//       const headMatch = part.match(/^@([a-zA-Z]+)\s*\{\s*([^,]+),/);
-//       if (!headMatch) continue;
-//       const entryType = headMatch[1];
-//       const key = headMatch[2];
-//       // extract some fields
-//       const titleMatch = part.match(/title\s*=\s*[{"]([^"}]+)[}"]/i);
-//       const authorMatch = part.match(/author\s*=\s*[{"]([^"}]+)[}"]/i);
-//       const yearMatch = part.match(/year\s*=\s*[{"]?(\d{4})/i);
-//       const urlMatch = part.match(/url\s*=\s*[{"]([^"}]+)[}"]/i);
-//       const doiMatch = part.match(/doi\s*=\s*[{"]?([^",}\s]+)[}"]/i);
-//       const booktitleMatch = part.match(/booktitle\s*=\s*[{"]([^"}]+)[}"]/i);
-//       const journalMatch = part.match(/journal\s*=\s*[{"]([^"}]+)[}"]/i);
-//       entries.push({
-//         citationKey: key,
-//         entryType,
-//         entryTags: {
-//           title: titleMatch ? titleMatch[1].trim() : '',
-//           author: authorMatch ? authorMatch[1].trim() : '',
-//           year: yearMatch ? yearMatch[1] : '',
-//           url: urlMatch ? urlMatch[1] : '',
-//           doi: doiMatch ? doiMatch[1] : '',
-//           booktitle: booktitleMatch ? booktitleMatch[1] : (journalMatch ? journalMatch[1] : '')
-//         }
-//       });
-//     }
-//     return entries;
-//   }
-
 // very small fallback parser: split on @, extract key fields by regex
 function fallbackParse(text) {
   console.log('[pubs] using fallback parser');
@@ -181,7 +145,7 @@ function renderEntriesWithYearSplit(entries) {
   function renderEntryHTML(e) {
     const authorHtml = e.authors
         .map(a => `<span class="pub-author">${escapeHtml(decodeLaTeX(a))}</span>`)
-        .join(', ');
+        .join('; ');
 
     const titleHtml = `<span class="pub-title">${escapeHtml(decodeLaTeX(e.title))}</span>`;
 
